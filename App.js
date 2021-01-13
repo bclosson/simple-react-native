@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import axios from 'axios';
+
 
 
 export default function App() {
-    const [item, setItem] = useState([]);
+    const [item, setItem] = useState([{}]);
     useEffect(() => {
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
       const url = "https://fetch-hiring.s3.amazonaws.com/hiring.json";

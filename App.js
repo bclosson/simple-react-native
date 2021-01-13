@@ -1,11 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
+
 
 export default function App() {
+    const [item, setItem] = useState([]);
+    useEffect(() => {
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      const url = "https://fetch-hiring.s3.amazonaws.com/hiring.json";
+      fetch(proxyurl + url)
+        .then(data => data.json())
+        .then((data) => {
+          setItem(data)
+        })
+        .catch((error) => {
+          setItem({error:error})
+        });
+    })
+  
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text>{ item }</Text>
       <StatusBar style="auto" />
     </View>
   );

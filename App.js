@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, FlatList, StatusBar} from 'react-native';
 
 
@@ -64,7 +64,7 @@ class App extends React.Component {
           let id = obj.id;
           let listId = obj.listId;
           let name = obj.name;
-          console.log(`this is obj: ${obj}`);
+  
             return <View key={i}>
               <Text>{`id: ${id}`}</Text>
               <Text>{`listId: ${listId}`}</Text>
@@ -86,8 +86,8 @@ class App extends React.Component {
       container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'left',
-        justifyContent: 'left',
+        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
         margin: '0, 2%',
         padding: '0, 0, 0, 10%'
       }

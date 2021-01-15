@@ -175,11 +175,11 @@ class App extends React.Component {
       let items = this.state.items;
       const filtered = items.filter((item, i) => typeof items[i].name === 'string');
       const filtered1 = filtered.filter((item, i) => filtered[i].name !== '');
-      const sorted = filtered1.sort((a, b) => (a.listId > b.listId ? 1 : -1));
-      const sorted1 = sorted.sort((a, b) => (a.name > b.name ? 1 : -1)); 
-      const group = sorted1.groupBy((a) => a.listId);  
-      
-      const itemMap = group.map((obj, i) => {
+      const sorted1 = filtered1.sort((a, b) => (a.name > b.name ? 1 : -1)); 
+      const sorted = sorted1.sort((a, b) => (a.listId > b.listId ? 1 : -1));
+
+      console.log(sorted);
+      const itemMap = sorted.map((obj, i) => {
           let id = obj.id;
           let listId = obj.listId;
           let name = obj.name;

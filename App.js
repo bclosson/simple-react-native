@@ -173,12 +173,28 @@ class App extends React.Component {
     //   return <Text>ERROR GETTING DATA</Text>
     // } else {
       let items = this.state.items;
-      const filtered = items.filter((item, i) => typeof items[i].name === 'string');
+      // const filtered = items.filter((item, i) => typeof items[i].name === 'string');
+      // const filtered1 = filtered.filter((item, i) => filtered[i].name !== '');
+      // const sorted1 = filtered1.sort((a, b) => (a.name > b.name ? 1 : -1)); 
+      // const sorted = sorted1.sort((a, b) => (a.listId > b.listId ? 1 : -1));
+      const filtered = items.filter((item, i) => items[i].name !== null);
       const filtered1 = filtered.filter((item, i) => filtered[i].name !== '');
-      const sorted1 = filtered1.sort((a, b) => (a.name > b.name ? 1 : -1)); 
-      const sorted = sorted1.sort((a, b) => (a.listId > b.listId ? 1 : -1));
-
-      console.log(sorted);
+      const sorted = filtered1.sort((a, b) => {
+        if (a.listId < b.listId) {
+          return -1;
+        } else if (a.listId > b.listId){
+          return 1;
+        } else {
+          if(a.name < b.name) {
+            return -1;
+          } else if (a.name > b.name) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      })
+    
       const itemMap = sorted.map((obj, i) => {
           let id = obj.id;
           let listId = obj.listId;

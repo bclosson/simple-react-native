@@ -50,9 +50,9 @@ class App extends React.Component {
         } else if (a.listId > b.listId){
           return 1;
         } else {
-          if(a.name < b.name) {
+          if(a.id < b.id) {
             return -1;
-          } else if (a.name > b.name) {
+          } else if (a.id > b.id) {
             return 1;
           } else {
             return 0;
